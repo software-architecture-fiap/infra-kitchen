@@ -1,4 +1,4 @@
-variable "default_region" {
+variable "region" {
   description = "The default region for the AWS provider"
   default     = "us-east-1"
   type        = string
@@ -9,8 +9,14 @@ variable "cluster_name" {
   type    = string
 }
 
+// Change the account_id to your AWS account ID
+variable "account_id" {
+  default = "830714066230"
+  type    = string
+}
+
 variable "cluster_role" {
-  default = ""
+  default = "arn:aws:iam::830714066230:role/eks-cluster-role"
 }
 
 variable "vpc_cidr" {
@@ -18,14 +24,26 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "eks_subnet_ids" {
-  description = "The IDs of the subnets to launch the EKS cluster into"
-  type        = list(string)
+variable "subnet_a" {
+  default = "<subnet-id>"
+}
+
+variable "subnet_b" {
+  default = "<subnet-id>"
+}
+
+variable "subnet_c" {
+  default = "<subnet-id>"
 }
 
 variable "instance_type" {
   description = "The type of instance to launch"
-  default     = "t3a.medium"
+  default     = "t2.micro"
+}
+
+variable "instance_name" {
+  description = "EC2 instance name"
+  default     = "Provisioned by Terraform"
 }
 
 variable "access_config" {

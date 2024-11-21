@@ -1,9 +1,9 @@
 resource "aws_eks_cluster" "lanchonete-eks-cluster" {
   name     = var.cluster_name
-  role_arn = data.aws_iam_role.eks-cluster-role.arn
+  role_arn = var.cluster_role
 
   vpc_config {
-    subnet_ids         = [for subnet in var.var.eks_subnet_ids : subnet.id]
+    subnet_ids         = ["${var.subnet_a}", "${var.subnet_b}", "${var.subnet_c}"]
     security_group_ids = [aws_security_group.eks-cluster-sg.id]
   }
 
@@ -11,3 +11,4 @@ resource "aws_eks_cluster" "lanchonete-eks-cluster" {
     authentication_mode = var.access_config
   }
 }
+  
