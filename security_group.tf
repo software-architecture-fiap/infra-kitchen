@@ -2,7 +2,7 @@ resource "aws_security_group" "eks-cluster-sg" {
   name        = "SG-${var.cluster_name}"
   description = "Security group for EKS cluster"
   vpc_id      = var.vpc_cidr
-  
+
   ingress {
     description = "Allow all HTTP inbound traffic"
     from_port   = 80
