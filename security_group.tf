@@ -1,7 +1,7 @@
-resource "aws_security_group" "eks-cluster-sg" {
+resource "aws_security_group" "eks_cluster_security_group" {
   name        = "SG-${var.cluster_name}"
   description = "Security group for EKS cluster"
-  vpc_id      = aws_vpc.eks_vpc.id
+  vpc_id      = data.aws_vpc.eks_vpc.id
 
   ingress {
     description = "Allow all HTTP inbound traffic"
@@ -36,6 +36,6 @@ resource "aws_security_group" "eks-cluster-sg" {
   }
 
   tags = {
-    Name = "eks_cluster_sg"
+    Name = "eks-cluster-security-group"
   }
 }

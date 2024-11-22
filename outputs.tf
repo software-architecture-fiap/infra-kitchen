@@ -23,12 +23,7 @@ output "vpc_id" {
   value       = aws_vpc.eks_vpc.id
 }
 
-output "worker_role_arn" {
-  description = "Worker node IAM role ARN"
-  value       = aws_iam_role.eks_worker_role.arn
-}
-
 output "security_group_id" {
   description = "Security group ID"
-  value       = aws_security_group.eks-cluster-sg.id
+  value       = aws_security_group.eks_cluster_security_group.id
 }
