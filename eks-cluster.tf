@@ -4,7 +4,7 @@ resource "aws_eks_cluster" "eks_lanchonete_cluster" {
 
   vpc_config {
     subnet_ids         = aws_subnet.eks_subnet[*].id
-    security_group_ids = [aws_security_group.eks_cluster_security_group.id]
+    security_group_ids = [aws_security_group.eks_lanchonete_cluster_security_group.id]
   }
 
   access_config {

@@ -25,5 +25,5 @@ output "vpc_id" {
 
 output "security_group_id" {
   description = "Security group ID"
-  value       = aws_security_group.eks_cluster_security_group.id
+  value       = aws_security_group.eks_lanchonete_cluster_security_group.id
 }

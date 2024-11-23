@@ -1,7 +1,7 @@
-resource "aws_security_group" "eks_cluster_security_group" {
+resource "aws_security_group" "eks_lanchonete_cluster_security_group" {
   name        = "SG-${var.cluster_name}"
   description = "Security group for EKS cluster"
-  vpc_id      = data.aws_vpc.eks_vpc.id
+  vpc_id      = aws_vpc.eks_vpc.id
 
   ingress {
     description = "Allow all HTTP inbound traffic"
