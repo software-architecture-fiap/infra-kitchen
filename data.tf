@@ -7,9 +7,9 @@ data "aws_iam_role" "eks_labrole" {
   name = "LabRole"
 }
 
-data "aws_vpc" "eks_vpc" {
-  cidr_block = var.vpc_cidr
-  tags = {
-    Name = "eks-vpc"
-  }
-}
+# data "aws_vpc" "eks_vpc" {
+#   cidr_block = var.vpc_cidr
+#   tags = {
+#     Name = "eks-vpc"
+#   }
+# }
