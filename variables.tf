@@ -24,7 +24,7 @@ variable "access_config" {
 
 variable "policy_arn" {
   description = "The ARN of the IAM policy to associate with the EKS cluster"
-  default     = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAmazonEKSClusterAdminPolicy"
+  default     = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
 }
 
 variable "principal_arn" {
