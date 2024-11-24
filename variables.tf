@@ -14,7 +14,7 @@ variable "vpc_cidr" {
 
 variable "instance_type" {
   description = "The type of instance to launch"
-  default     = "t3.medium"
+  default     = "t3.mediummmm"
 }
 
 variable "access_config" {
@@ -24,7 +24,6 @@ variable "access_config" {
 
 variable "policy_arn" {
   description = "The ARN of the IAM policy to associate with the EKS cluster"
-  # default     = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   default     = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
 }
 
