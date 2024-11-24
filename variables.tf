@@ -14,7 +14,7 @@ variable "vpc_cidr" {
 
 variable "instance_type" {
   description = "The type of instance to launch"
-  default     = "t3.mediummmm"
+  default     = "t3.medium"
 }
 
 variable "access_config" {
