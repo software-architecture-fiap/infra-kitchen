@@ -12,3 +12,15 @@ resource "aws_eks_cluster" "eks_lanchonete_cluster" {
   }
 }
 
+resource "aws_eks_addon" "ebs_csi_driver" {
+  cluster_name = aws_eks_cluster.eks_lanchonete_cluster.name
+  addon_name   = "aws-ebs-csi-driver"
+
+  depends_on = [aws_eks_node_group.eks_lanchonete_node_group]
+
+
+  tags = {
+    name = "ebs-lanchonete-csi-driver"
+  }
+
+}
