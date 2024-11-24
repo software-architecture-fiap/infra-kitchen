@@ -1,0 +1,33 @@
+name: TFlint checks
+
+on:
+  push:
+    branches:
+      - "**"
+
+permissions: read-all
+
+jobs:
+  tflint-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/cache@v2
+        name: Cache Terraform plugins
+        with:
+          path: ~/.tflint.d/plugins
+          key: ${{ matrix.os }}-tflint-${{ hashFiles('.tflint.hcl') }}
+
+      - uses: terraform-linters/setup-tflint@v2
+        name: Setup TFLint
+        with:
+          github_token: ${{ secrets.CI_GITHUB_TOKEN }}
+
+      - name: Init TFLint
+        run: tflint --init
+
+      - name: Run TFLint
+        run: tflint -f compact --recursive

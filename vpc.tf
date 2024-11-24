@@ -17,7 +17,7 @@ resource "aws_subnet" "eks_subnet" {
 
 resource "aws_route_table_association" "eks_route_table_assoc" {
   count          = 3
-  subnet_id      = element(aws_subnet.eks_subnet.*.id, count.index)
+  subnet_id      = aws_subnet.eks_subnet[count.index].id
   route_table_id = aws_route_table.eks_route_table.id
 }
 

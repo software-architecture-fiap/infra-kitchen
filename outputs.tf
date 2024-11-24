@@ -10,7 +10,7 @@ output "cluster_endpoint" {
 
 output "kubeconfig-certificate-authority-data" {
   description = "EKS cluster certificate authority data"
-  value       = aws_eks_cluster.eks_lanchonete_cluster.certificate_authority.0.data
+  value       = aws_eks_cluster.eks_lanchonete_cluster.certificate_authority[0].data
 }
 
 output "region" {
