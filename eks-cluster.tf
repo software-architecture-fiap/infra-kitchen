@@ -21,6 +21,7 @@ resource "aws_iam_policy_attachment" "attach_ebs_csi_policy" {
 resource "aws_eks_addon" "ebs_csi_driver" {
   cluster_name = aws_eks_cluster.eks_lanchonete_cluster.name
   addon_name   = "aws-ebs-csi-driver"
+  service_account_role_arn = "arn:aws:iam::${var.account_id}:role/ExistingEBSRole" 
 
   depends_on = [aws_eks_node_group.eks_lanchonete_node_group]
 
