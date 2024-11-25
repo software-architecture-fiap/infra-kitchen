@@ -26,6 +26,37 @@ This infrastructure is provisioned using [HCP Terraform](https://developer.hashi
 
 Every push to the repository triggers a `terraform plan` to preview the changes in the infrastructure. After a merge, another `terraform plan` is executed followed by a `terraform apply` to implement the changes. You can follow these actions by clicking on the GitHub checks, which will redirect you to the HCP platform for detailed logs and status updates.
 
+#### How to: provisioning the all infra on EKS
+
+### Tutorial: Provisioning the Entire Infrastructure on EKS
+
+1. **Create a Pull Request and Merge:**
+    - Update the environment values on HCP and locally.
+    - Create a PR on this repository and merge it into the main branch. This action will trigger a `terraform plan` and `terraform apply`.
+    - You can follow the entire process on [infra-kitchen runs](https://app.terraform.io/app/tc_fiap/workspaces/infra-kitchen/runs). Note that it takes at least 15 minutes for the infrastructure to be up and running.
+
+![alt text](/docs/images/hcp-run.png)
+
+2. **Get the Kubeconfig:**
+    - After the infrastructure is up, use the following commands to get the kubeconfig:
+
+```bash
+    aws eks --region us-east-1 update-kubeconfig --name EKS-lanchonete-cluster
+
+    kubectl cluster-info
+    ❯ kubectl cluster-info
+    Kubernetes control plane is running at https://8A378062CC9AEEE22CD23D0F97BDBAF3.gr7.us-east-1.eks.amazonaws.com
+    CoreDNS is running at https://8A378062CC9AEEE22CD23D0F97BDBAF3.gr7.us-east-1.eks.amazonaws.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+    To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+```
+3. **Deploy Kubernetes objects:**
+    - Go to [app service repository](https://github.com/software-architecture-fiap/tech-challenge) and try to apply the manifests from there.
+    - Export 
+    ```
+    ```
+
+
 #### Destroy and Deletion Flows
 
 For security reasons, deletion operations must be scheduled or triggered directly from the HCP workspace settings. This ensures that only authorized personnel can initiate such critical actions, preventing accidental or malicious deletions. Follow these steps to perform a deletion:
