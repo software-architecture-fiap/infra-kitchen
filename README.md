@@ -52,8 +52,13 @@ Every push to the repository triggers a `terraform plan` to preview the changes 
 ```
 3. **Deploy Kubernetes objects:**
     - Go to [app service repository](https://github.com/software-architecture-fiap/tech-challenge) and try to apply the manifests from there.
-    - Export 
-    ```
+    - Export the `KUSTOMIZE_DIR` as `KUSTOMIZE_DIR="$(pwd)/infra/kubernetes/<environment>"`
+    ```bash
+    KUSTOMIZE_DIR="$(pwd)/infra/kubernetes/development"
+
+    kubectl apply -k $KUSTOMIZE_DIR -n development
+
+    kubectl get pod -n development
     ```
 
 
