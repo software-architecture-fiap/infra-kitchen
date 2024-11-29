@@ -21,7 +21,6 @@ resource "aws_eks_cluster" "eks_lanchonete_cluster" {
 resource "aws_eks_addon" "ebs_csi_driver" {
   cluster_name = aws_eks_cluster.eks_lanchonete_cluster.name
   addon_name   = "aws-ebs-csi-driver"
-  # service_account_role_arn = "arn:aws:iam::${var.account_id}:role/ExistingEBSRole" 
 
   tags = {
     name = "ebs-lanchonete-csi-driver"
