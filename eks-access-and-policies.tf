@@ -14,8 +14,3 @@ resource "aws_eks_access_policy_association" "eks_lanchonete_policy_association"
     type = "cluster"
   }
 }
-
-# resource "aws_iam_role_policy_attachment" "eks_admin_policy" {
-#   role = "voclabs"
-#   policy_arn = var.policy_arn  
-# }
