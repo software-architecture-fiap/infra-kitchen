@@ -5,7 +5,7 @@ variable "region" {
 }
 
 variable "cluster_name" {
-  default = "lanchonete-cluster"
+  default = "lanches-cluster"
   type    = string
 }
 
