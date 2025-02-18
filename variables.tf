@@ -36,13 +36,13 @@ variable "policy_arn" {
 
 variable "account_id" {
   description = "The AWS account ID"
-  default     = "830714066230"
+  default     = "147671223315"
   type        = string
 }
 
 
 # variable "principal_arn" {
 #   description = "The ARN of the IAM principal to associate with the EKS cluster"
-#   default     = "arn:aws:iam::830714066230:role/voclabs"
+#   default     = "arn:aws:iam::147671223315:role/voclabs"
 #   # default     = "arn:aws:iam::<account-id>:role/voclabs"
 # }
